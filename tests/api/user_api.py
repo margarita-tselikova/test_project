@@ -5,7 +5,7 @@ class UsersApi:
 
     @staticmethod
     def create_user(url, data):
-        return requests.post(url + 'api/v1.0/users', data=data)
+        return requests.post(url + 'api/v1.0/users', json=data)
 
     @staticmethod
     def get_user(url, user_id):
@@ -13,7 +13,7 @@ class UsersApi:
 
     @staticmethod
     def update_user(url, user_id, data):
-        return requests.put(url + 'api/v1.0/users/' + str(user_id), data=data)
+        return requests.put(url + 'api/v1.0/users/' + str(user_id), json=data)
 
     @staticmethod
     def delete_user(url, user_id):

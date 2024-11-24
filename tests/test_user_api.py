@@ -38,7 +38,7 @@ class TestUserApi:
     
     def test_create_user_without_id(self, base_url, user_dict):
         user_dict['id'] = None
-        response = UsersApi.create_user(base_url, data=json.dumps(user_dict))
+        response = UsersApi.create_user(base_url, data=user_dict)
         assert response.status_code == HTTPStatus.BAD_REQUEST
         assert response.json() == USER_ID_IS_NOT_INT_ERROR
     
@@ -203,7 +203,7 @@ class TestUserApi:
         assert user_creation_response.status_code == HTTPStatus.CREATED
         update_data = user_dict.copy()
         update_data['name'] = None
-        update_user_result = UsersApi.update_user(base_url, user_dict['id'], data=json.dumps(update_data))
+        update_user_result = UsersApi.update_user(base_url, user_dict['id'], data=update_data)
         assert update_user_result.status_code == HTTPStatus.BAD_REQUEST
         assert update_user_result.json() == USER_DATA_NOT_SPECIFIED_ERROR
 
@@ -230,7 +230,7 @@ class TestUserApi:
         assert user_creation_response.status_code == HTTPStatus.CREATED
         update_data = user_dict.copy()
         update_data['name'] = None
-        update_user_result = UsersApi.update_user(base_url, user_dict['id'], data=json.dumps(update_data))
+        update_user_result = UsersApi.update_user(base_url, user_dict['id'], data=update_data)
         assert update_user_result.status_code == HTTPStatus.BAD_REQUEST
         assert update_user_result.json() == USER_DATA_NOT_SPECIFIED_ERROR
 
