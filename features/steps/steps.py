@@ -27,7 +27,7 @@ def impl_step(context):
 def step_impl(context):
     global response
     global expected_user
-    response = requests.post(api_url + '/api/v1.0/users', data=new_user)
+    response = requests.post(api_url + '/api/v1.0/users', json=new_user)
 #    expected_user = new_user
 
 @then('I receive HTTP status code "{status_code}"')
@@ -74,7 +74,7 @@ def step_impl(context):
 def step_impl(context):
     global new_user
     global response
-    response = requests.put(api_url + '/api/v1.0/users/' + str(new_user['id']), data=new_user)
+    response = requests.put(api_url + '/api/v1.0/users/' + str(new_user['id']), json=new_user)
 
 @when('I delete user')
 def step_impl(context):
