@@ -23,7 +23,7 @@ class TestUserApi:
     """User API Service Tests"""
 
     @pytest.fixture
-    def user_dict(self, base_url):
+    def user_dict(self, base_url, extra_param):
         """Generating Test User Data and Deleting User after a Test"""
         user = UserFactory().__dict__
         yield user
