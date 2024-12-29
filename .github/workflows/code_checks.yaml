@@ -33,4 +33,4 @@ jobs:
     # Run Pylint
     - name: Run Pylint checks
       run: |
-        pylint test_project_user_service/**/*.py
+        pylint **/*.py
