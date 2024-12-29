@@ -31,10 +31,6 @@ jobs:
         pip install pylint
 
     # Run Pylint
-    - name: Run Pylint with reviewdog
-      uses: reviewdog/action-pylint@v1
-      with:
-        pylint_flags: "--output-format=text test_project_user_service/**/*.py"
-        level: error
-        reporter: github-pr-review
-        filter_mode: file
+    - name: Run Pylint checks
+      run: |
+        pylint test_project_user_service/**/*.py
